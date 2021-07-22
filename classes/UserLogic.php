@@ -32,6 +32,31 @@ class UserLogic
     }
 
     /**
+     * Add profile photo
+     * @param string $photoUrl
+     * @param int $userId
+     * @return bool $result
+     */
+    public static function addProfilePhoto($photoUrl, $userId)
+    {
+        $result = false;
+        $sql = 'UPDATE users SET profilePhotoUrl = ? WHERE id = ?';
+
+        $arr = [];
+        $arr[] = $photoUrl;
+        $arr[] = $userId;
+
+        try{
+            $stmt = connect()->prepare($sql);
+            $result = $stmt->execute($arr);
+    
+            return $result;
+        }catch (\Exception $e){
+            return $result;
+        }
+    }
+
+    /**
      * User login 
      * @param string $email
      * @param string $password

@@ -26,8 +26,14 @@ $login_user = $_SESSION['login_user'];
 </head>
 <body>
 <h2>My Page</h2>
-<p>Log in User:<?php echo h($login_user['name']) ?></p>
-<p>email:<?php echo h($login_user['email']) ?></p>
+<?php if(isset($login_user['profilePhotoUrl'])) : ?>
+    <img src=<?php echo h($login_user['profilePhotoUrl']) ?>>
+<?php else : ?>
+    <img src="image/no-image-set.jpg"><br>
+    <a href="./profile_photo_form.php">Add profile photo</a>
+<?php endif ?>
+<p>Username: <?php echo h($login_user['name']) ?></p>
+<p>email: <?php echo h($login_user['email']) ?></p>
 <form action="logout.php" method="POST">
 <input type="submit" name="logout" value="Log out">
 </form>
