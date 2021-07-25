@@ -7,7 +7,9 @@ $err = [];
 
 $token = filter_input(INPUT_POST, 'csrf_token');
 //token error
-if(isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']){
+if(!isset($_SESSION['csrf_token']) || $token !== $_SESSION['csrf_token']){
+    echo $_SESSION['csrf_token'];
+    echo $token;
     exit('Unauthorized Request');
 }
 
@@ -56,6 +58,6 @@ if(count($err) === 0){
 <?php else: ?>
     <p>Registration complete!</p>
 <?php endif ?>
-    <a href="./signup_form.php">Back</a>
+    <a href="./login_form.php">Log in</a>
 </body>
 </html>
