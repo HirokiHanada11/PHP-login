@@ -1,5 +1,15 @@
 <?php
-    require_once 'env.php';
+    //FOR LOCAL USE VIA XAMPP
+    // define('DB_HOST', 'localhost');
+    // define('DB_NAME', 'user');
+    // define('DB_USER', 'hiroki');
+    // define('DB_PASS', 'password');
+    
+    //for Tecbase
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'tb230057db');
+    define('DB_USER', 'tb-230057');
+    define('DB_PASS', 'MHLd82y7cZ');
     function connect()
     {
         $host = DB_HOST;
